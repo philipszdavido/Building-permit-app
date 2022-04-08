@@ -1,9 +1,16 @@
+<<<<<<< HEAD
 import React from "react";
 import {useState, useEffect} from "react";
 
 
 
  type Permit = {
+=======
+import {useState, useEffect} from "react";
+
+
+ type Product = {
+>>>>>>> 5f814da98792e321a174d4530d7a4c57421e3a40
     "id": string,
     "permit_": string,
     "permit_type": string,
@@ -13,13 +20,21 @@ import {useState, useEffect} from "react";
     "processing_time": string,
     "street_number": string,
     "street_direction":string,
+<<<<<<< HEAD
     "street_name": string
+=======
+>>>>>>> 5f814da98792e321a174d4530d7a4c57421e3a40
  }
 
 function MainBody() {
      
+<<<<<<< HEAD
     const [allPermits, setAllPermits] = useState([]);
     const [permits, setPermits] = useState([]);
+=======
+    const [allProducts, setAllProducts] = useState([]);
+    const [products, setProducts] = useState([]);
+>>>>>>> 5f814da98792e321a174d4530d7a4c57421e3a40
     const [{
         index,
         limit
@@ -32,6 +47,7 @@ function MainBody() {
         fetch('https://data.cityofchicago.org/resource/ydr8-5enu.json ')
         .then(res=>res.json())
         .then(json=>{
+<<<<<<< HEAD
             setPermits(json.slice(index, limit))
             setAllPermits(json)})
     }, [])
@@ -55,6 +71,32 @@ function MainBody() {
     }
 
     const nextFn = () => {
+=======
+            setProducts(json.slice(index, limit))
+            setAllProducts(json)})
+    }, [])
+
+    useEffect(() => {
+console.log(index, limit, allProducts.slice(index, limit), allProducts)
+        setProducts(allProducts.slice(index, limit))
+
+    }, [index])
+
+  console.log(products);
+  const viewProductFn = (id: string) => {
+    window.history.pushState({}, '', `/product/${id}`);
+  }
+
+  const prevFn = () => {
+      setPageOptions({
+            index: index - 10,
+            limit: index - 20
+        })
+
+  }
+
+  const nextFn = () => {
+>>>>>>> 5f814da98792e321a174d4530d7a4c57421e3a40
         setPageOptions({
             index: index + 10,
             limit: index + 20
@@ -64,6 +106,7 @@ function MainBody() {
     return (
         <div className="main__content">
             <div className="main__post">
+<<<<<<< HEAD
                 <div className="card">
                     <div className="table__responsiveness">
                         <table className="table__style">
@@ -101,6 +144,39 @@ function MainBody() {
                         <button className="next__btn"  onClick={nextFn}>Next</button>
                     </div>
                 </div>
+=======
+                <div className="card"> 
+                    <table>
+                        <tr>
+                        <th>Permit</th>
+                        <th>Permit Type</th>
+                        <th>Review Type</th>
+                        <th>Application Start Date</th>
+                        <th>Issue date</th>
+                        <th>Street Direction</th>
+                        <th>Actions</th>
+                        </tr>
+                        {products.map((product: Product) =>(
+                            <tr key={product.id}>
+                                <td>{product.permit_}</td>
+                                <td>{product.permit_type}</td>
+                                <td>{product.review_type}</td>
+                                <td>{product.application_start_date}</td>
+                                <td>{new Date(product.issue_date).toUTCString()}</td>
+                                <td>{product.street_direction}</td>
+                                <td>
+                                    <button onClick={() => viewProductFn(product.id)}>View</button>
+                                </td>
+                            </tr>
+                        ))}
+                    </table>
+                    <div>
+                        <button onClick={prevFn}>Prev</button>
+                        <button onClick={nextFn}>Next</button>
+                    </div>
+                </div>
+
+>>>>>>> 5f814da98792e321a174d4530d7a4c57421e3a40
             </div>
         </div>
 
