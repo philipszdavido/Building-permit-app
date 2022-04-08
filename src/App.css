@@ -358,6 +358,9 @@ margin-top: 3rem;
 text-align: center;
 }
 
+.table__responsiveness {
+  overflow-x: auto;
+}
 .table__style {
   font-family: Arial, Helvetica, sans-serif;
   border-collapse: collapse;
@@ -381,10 +384,12 @@ text-align: center;
   color: white;
 }
 
-.button {
+.view__button {
   padding: 8px;
   border: none;
   border-radius: 4px;
+  background-color: #033C73;
+  color: #ffffff;
 }
 
 .pagination__container {
