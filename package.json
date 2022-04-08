@@ -12,10 +12,7 @@
     "@types/react-dom": "^17.0.14",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
-<<<<<<< HEAD
     "react-router-dom": "^6.3.0",
-=======
->>>>>>> 5f814da98792e321a174d4530d7a4c57421e3a40
     "react-scripts": "5.0.0",
     "typescript": "^4.6.3",
     "web-vitals": "^2.1.4"
